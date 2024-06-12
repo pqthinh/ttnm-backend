@@ -38,11 +38,12 @@ def convert_audio_to_text(file_path):
         with sr.AudioFile("temp.wav") as source:
             audio_data = recognizer.record(source)
             text = recognizer.recognize_google(audio_data, language='vi-VN')
-            print(text)
-            action = process_voice_command(text)
-            print(action)
-            emit('transcription', action)
-            
+            # print(text)
+            # action = process_voice_command(text)
+            # print(action)
+            # emit('transcription', action)
+            emit('transcription', text)
+
         # Xóa file .wav sau khi convert hoàn tất
         os.remove("temp.wav")
         os.remove("temp.3gp")

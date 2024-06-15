@@ -6,9 +6,7 @@ from flask_socketio import SocketIO, emit
 import speech_recognition as sr
 import re
 
-AudioSegment.converter = "D:\\ffmpeg\\bin\\ffmpeg.exe"
-AudioSegment.ffmpeg = "D:\\ffmpeg\\bin\\ffmpeg.exe"
-AudioSegment.ffprobe ="D:\\ffmpeg\\bin\\ffprobe.exe"
+
 
 app = Flask(__name__)
 socketio = SocketIO(app)

@@ -1,7 +1,7 @@
 import openai
 
 # Thay thế bằng API key của bạn từ OpenAI
-openai.api_key = 'sk-proj-asBHiKgflgSSqjxi8TdxT3BlbkFJaeu3NLJXGrQgWqv6mYe9'
+openai.api_key = ''
 
 def analyze_command(command):
     response = openai.Completion.create(

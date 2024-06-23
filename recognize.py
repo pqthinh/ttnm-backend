@@ -7,7 +7,6 @@ import speech_recognition as sr
 import re
 
 
-
 app = Flask(__name__)
 socketio = SocketIO(app)
 

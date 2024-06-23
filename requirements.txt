@@ -1,0 +1,4 @@
+pydub
+flask
+flask_socketio
+speech_recognition

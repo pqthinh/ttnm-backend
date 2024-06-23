@@ -6,13 +6,14 @@ from flask_socketio import SocketIO, emit
 import speech_recognition as sr
 import re
 
-
 app = Flask(__name__)
 socketio = SocketIO(app)
+
 
 @app.route('/')
 def index():
     return "Server is running"
+
 
 @socketio.on('audio-stream')
 def handle_audio_stream(data):
@@ -23,6 +24,7 @@ def handle_audio_stream(data):
         convert_audio_to_text('temp.3gp')
     except Exception as e:
         print(f"Error processing audio stream: {e}")
+
 
 def convert_audio_to_text(file_path):
     recognizer = sr.Recognizer()
@@ -46,6 +48,7 @@ def convert_audio_to_text(file_path):
         os.remove("temp.3gp")
     except Exception as e:
         print(f"Error converting audio to text: {e}")
+
 
 def process_voice_command(text):
     text = text.lower()
@@ -108,5 +111,6 @@ def process_voice_command(text):
 
     return result if result["action"] else None
 
+
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)
